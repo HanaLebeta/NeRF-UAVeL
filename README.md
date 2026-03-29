@@ -11,8 +11,8 @@
 <a href="https://hanalebeta.github.io/NeRF-UAVeL/">
 <img alt="Project Page" src="https://img.shields.io/badge/Project-Page-blue?style=for-the-badge&logo=github-pages&logoColor=white">
 </a>
-<a href="https://github.com/HanaLebeta/NeRF-UAVeL">
-<img alt="Code" src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github&logoColor=white">
+<a href="#">
+<img alt="Code" src="https://img.shields.io/badge/Code-Coming%20Soon-gray?style=for-the-badge&logo=github&logoColor=white">
 </a>
 <a href="#">
 <img alt="Python 3.8+" src="https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white">
@@ -166,96 +166,9 @@ Quantitative results on the 3D-FRONT and ScanNet datasets. The first block inclu
 
 <sup>*</sup> NeRF-MAE results include pretraining on 3D-FRONT and two additional external datasets (Hypersim and HM3D).
 
-## Installation
+## Code Availability
 
-### Prerequisites
-
-- Linux (tested on Ubuntu 20.04 / 22.04 / 24.04)
-- Python >= 3.8
-- PyTorch >= 1.12
-- CUDA >= 11.3 (tested with CUDA 11.3, 11.8, 12.1, 13.0)
-
-### Environment Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/HanaLebeta/NeRF-UAVeL.git
-cd NeRF-UAVeL
-
-# Create conda environment
-conda create -n nerf_uavel python=3.10 -y
-conda activate nerf_uavel
-
-# Install PyTorch (adjust CUDA version to match your system)
-# For CUDA 11.8:
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia -y
-# For CUDA 12.1:
-# conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia -y
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Build CUDA extensions
-cd nerf_rpn/model/rotated_iou/cuda_op
-python setup.py install
-cd ../../../..
-
-cd nerf_rpn/model/rotated_align
-python setup.py install
-cd ../../..
-```
-
-## Data Preparation
-
-We use the pre-extracted NeRF features provided by [NeRF-RPN](https://github.com/lyclyc52/NeRF_RPN). Download the data from:
-
-> [https://huggingface.co/datasets/lyclyc52/NeRF_RPN/tree/main](https://huggingface.co/datasets/lyclyc52/NeRF_RPN/tree/main)
-
-Organize the downloaded data as follows:
-
-```
-NeRF-UAVeL/
-|-- data/
-|   |-- front3d_rpn_data/
-|   |   |-- features/          # Pre-extracted NeRF density features
-|   |   |-- obb/               # Oriented bounding box annotations
-|   |   |-- 3dfront_split.npz  # Train/val/test split
-|   |-- scannet_rpn_data/
-|   |   |-- features/
-|   |   |-- obb/
-|   |   |-- scannet_split.npz
-```
-
-## Training
-
-```bash
-# 3D-FRONT
-bash scripts/train.sh front3d 0
-
-# ScanNet
-bash scripts/train.sh scannet 0
-```
-
-See `scripts/train.sh` for all options and multi-GPU training.
-
-## Evaluation
-
-```bash
-# 3D-FRONT
-bash scripts/eval.sh front3d checkpoints/front3d_best.pt 0
-
-# ScanNet
-bash scripts/eval.sh scannet checkpoints/scannet_best.pt 0
-```
-
-See `scripts/eval.sh` for details.
-
-## Pretrained Models
-
-| Dataset | AP25 | AP50 | Download |
-|:--------|:----:|:----:|:--------:|
-| 3D-FRONT | 87.3 | 66.6 | Coming Soon |
-| ScanNet | 60.2 | 25.3 | Coming Soon |
+The source code, pretrained models, and training scripts will be released upon publication of the paper. Stay tuned!
 
 ## Citation
 
