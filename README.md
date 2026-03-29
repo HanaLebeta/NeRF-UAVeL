@@ -25,7 +25,9 @@
 </a>
 </p>
 
-**Hana L. Goshu**
+**[Hana L. Goshu](https://www.hanagoshu.com)<sup>1</sup>, [Tadesse G. Wakjira](https://www.ai4riselab.com)<sup>2</sup>, Meklit M. Atlaw<sup>3</sup>, Kin-Chung Chan<sup>1</sup>, Songjiang Lai<sup>1</sup>, Kin-Man Lam<sup>1</sup>**
+
+<sup>1</sup>The Hong Kong Polytechnic University &nbsp; <sup>2</sup>Kennesaw State University &nbsp; <sup>3</sup>Xi'an Jiaotong University
 
 *Neurocomputing (Under Review)*
 
@@ -177,7 +179,7 @@ If you find this work useful in your research, please consider citing:
 ```bibtex
 @article{nerf_uavel2026,
     title     = {NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection},
-    author    = {Goshu, Hana L.},
+    author    = {Goshu, Hana L. and Wakjira, Tadesse G. and Atlaw, Meklit M. and Chan, Kin-Chung and Lai, Songjiang and Lam, Kin-Man},
     journal   = {Neurocomputing},
     year      = {2026},
     note      = {Under Review}

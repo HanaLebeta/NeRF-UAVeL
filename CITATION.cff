@@ -5,6 +5,16 @@ type: software
 authors:
   - family-names: Goshu
     given-names: "Hana L."
+  - family-names: Wakjira
+    given-names: "Tadesse G."
+  - family-names: Atlaw
+    given-names: "Meklit M."
+  - family-names: Chan
+    given-names: Kin-Chung
+  - family-names: Lai
+    given-names: Songjiang
+  - family-names: Lam
+    given-names: Kin-Man
 license: Apache-2.0
 repository-code: "https://github.com/HanaLebeta/NeRF-UAVeL"
 preferred-citation:
@@ -13,6 +23,16 @@ preferred-citation:
   authors:
     - family-names: Goshu
       given-names: "Hana L."
+    - family-names: Wakjira
+      given-names: "Tadesse G."
+    - family-names: Atlaw
+      given-names: "Meklit M."
+    - family-names: Chan
+      given-names: Kin-Chung
+    - family-names: Lai
+      given-names: Songjiang
+    - family-names: Lam
+      given-names: Kin-Man
   journal: "Neurocomputing"
   year: 2026
   note: "Under Review"

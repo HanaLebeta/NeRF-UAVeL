@@ -67,6 +67,17 @@ a:hover {
   color: #4A90D9;
 }
 
+.affiliations {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.6rem;
+}
+
+.affiliations span {
+  margin: 0 0.5rem;
+  white-space: nowrap;
+}
+
 .venue {
   margin-bottom: 1.4rem;
 }
