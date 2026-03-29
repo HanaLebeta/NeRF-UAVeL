@@ -88,7 +88,7 @@ Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) h
 <td align="center">49.6</td>
 <td align="center">78.5</td>
 <td align="center">34.2</td>
-<td align="center">66.8</td>
+<td align="center"><strong>66.8</strong></td>
 <td align="center">18.2</td>
 </tr>
 <tr>
@@ -154,7 +154,7 @@ Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) h
 <td align="center"><strong>66.6</strong></td>
 <td align="center"><strong>92.6</strong></td>
 <td align="center"><strong>45.8</strong></td>
-<td align="center"><strong>60.1</strong></td>
+<td align="center">60.2</td>
 <td align="center"><strong>25.3</strong></td>
 </tr>
 </tbody>
