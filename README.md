@@ -61,6 +61,8 @@ Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) h
 
 ## Main Results
 
+Quantitative results on the 3D-FRONT and ScanNet datasets. The first block includes point-cloud-based methods, while the remaining entries are multi-view-based detection methods.
+
 <table>
 <thead>
 <tr>
@@ -69,14 +71,14 @@ Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) h
 <th colspan="4" align="center">ScanNet</th>
 </tr>
 <tr>
-<th align="center">R25</th>
-<th align="center">R50</th>
-<th align="center">AP25</th>
-<th align="center">AP50</th>
-<th align="center">R25</th>
-<th align="center">R50</th>
-<th align="center">AP25</th>
-<th align="center">AP50</th>
+<th align="center">R<sub>25</sub></th>
+<th align="center">R<sub>50</sub></th>
+<th align="center">AP<sub>25</sub></th>
+<th align="center">AP<sub>50</sub></th>
+<th align="center">R<sub>25</sub></th>
+<th align="center">R<sub>50</sub></th>
+<th align="center">AP<sub>25</sub></th>
+<th align="center">AP<sub>50</sub></th>
 </tr>
 </thead>
 <tbody>
@@ -113,6 +115,7 @@ Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) h
 <td align="center">63.7</td>
 <td align="center">18.5</td>
 </tr>
+<tr><td colspan="9"></td></tr>
 <tr>
 <td align="left">ImVoxNet</td>
 <td align="center">88.3</td>
@@ -125,7 +128,7 @@ Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) h
 <td align="center">9.8</td>
 </tr>
 <tr>
-<td align="left">NeRF-MAE</td>
+<td align="left">NeRF-MAE*</td>
 <td align="center">97.2</td>
 <td align="center">74.5</td>
 <td align="center">85.3</td>
@@ -146,6 +149,7 @@ Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) h
 <td align="center">55.5</td>
 <td align="center">18.4</td>
 </tr>
+<tr><td colspan="9"></td></tr>
 <tr>
 <td align="left"><strong>NeRF-UAVeL (Ours)</strong></td>
 <td align="center"><strong>98.5</strong></td>
@@ -159,6 +163,8 @@ Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) h
 </tr>
 </tbody>
 </table>
+
+<sup>*</sup> NeRF-MAE results include pretraining on 3D-FRONT and two additional external datasets (Hypersim and HM3D).
 
 ## Installation
 
