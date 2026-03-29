@@ -53,14 +53,6 @@
 
 Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) has emerged as a promising direction for reconstructing complex environments from posed RGB images. However, existing NeRF-based detectors often suffer from coarse feature encoding and limited attention to multi-scale volumetric structure, leading to inaccurate localization and poor generalization in real-world scenarios. To address these challenges, we propose **NeRF-UAVeL**, a unified attention-driven volumetric learning detection framework that integrates four novel modules into a NeRF-derived 3D volumetric backbone, namely, Multi-dimensional Volumetric Attention Pooling (MVAP), Tri-Scale Asymmetric Convolutional Aggregation (TACA), Dual-Domain Attention Fusion (DDAF), and Volumetric Cross-Window Attention Fusion (V-CWAF). Extensive experiments on the 3D-FRONT and ScanNet datasets demonstrate that NeRF-UAVeL outperforms both point cloud-based and multi-view-based methods.
 
-## Architecture
-
-<div align="center">
-<img src="assets/architecture.png" width="95%">
-<br>
-<em>Overview of the NeRF-UAVeL architecture.</em>
-</div>
-
 ## Main Results
 
 Quantitative results on the 3D-FRONT and ScanNet datasets. The first block includes point-cloud-based methods, while the remaining entries are multi-view-based detection methods.
