@@ -3,13 +3,16 @@ message: "If you use this software, please cite it as below."
 title: "NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection"
 type: software
 authors:
-  - name: "[Authors]"
+  - family-names: Goshu
+    given-names: "Hana L."
 license: Apache-2.0
-repository-code: "https://github.com/[username]/NeRF-UAVeL"
+repository-code: "https://github.com/HanaLebeta/NeRF-UAVeL"
 preferred-citation:
   type: article
   title: "NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection"
   authors:
-    - name: "[Authors]"
+    - family-names: Goshu
+      given-names: "Hana L."
   journal: "Neurocomputing"
   year: 2025
+  note: "Under Review"

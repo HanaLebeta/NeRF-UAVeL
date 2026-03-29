@@ -4,438 +4,176 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection</title>
-  <meta name="description" content="NeRF-UAVeL: A unified attention-driven volumetric learning framework for 3D object detection from Neural Radiance Fields.">
-  <meta name="keywords" content="NeRF, 3D Object Detection, Volumetric Learning, Attention, Deep Learning">
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Academicons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">NeRF-UAVeL</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#abstract">Abstract</a></li>
-        <li><a href="#method">Method</a></li>
-        <li><a href="#modules">Modules</a></li>
-        <li><a href="#results">Results</a></li>
-        <li><a href="#qualitative">Visualizations</a></li>
-        <li><a href="#citation">Citation</a></li>
-      </ul>
+  <!-- Title Section -->
+  <section class="section title-section">
+    <h1 class="project-title">
+      <span class="accent">NeRF-UAVeL</span>: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection
+    </h1>
+    <div class="authors">
+      <a href="https://www.hanagoshu.com">Hana L. Goshu</a>
     </div>
-  </nav>
+    <div class="venue">
+      <span class="venue-badge">Neurocomputing (Under Review)</span>
+    </div>
+    <div class="buttons-row">
+      <a class="btn btn-disabled" href="#" onclick="return false;" title="Coming soon">
+        <i class="fa-solid fa-file-pdf"></i> Paper
+        <span class="btn-note">(coming soon)</span>
+      </a>
+      <a class="btn" href="https://github.com/HanaLebeta/NeRF-UAVeL" target="_blank">
+        <i class="fa-brands fa-github"></i> Code
+      </a>
+      <a class="btn" href="https://huggingface.co/datasets/lyclyc52/NeRF_RPN/tree/main" target="_blank">
+        <i class="fa-solid fa-database"></i> Data
+      </a>
+    </div>
+  </section>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-venue">
-        <span class="venue-badge">Neurocomputing (Under Review)</span>
-      </p>
-      <h1 class="hero-title">
-        <span class="title-accent">NeRF-UAVeL</span>: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection
-      </h1>
-      <div class="hero-authors">
-        <span class="author">Author 1<sup>1</sup></span>,
-        <span class="author">Author 2<sup>1</sup></span>,
-        <span class="author">Author 3<sup>2</sup></span>
-      </div>
-      <div class="hero-affiliations">
-        <span class="affiliation"><sup>1</sup>Affiliation 1</span>
-        <span class="affiliation"><sup>2</sup>Affiliation 2</span>
-      </div>
-      <div class="hero-buttons">
-        <a href="#" class="btn btn-primary">
-          <i class="fas fa-file-pdf"></i> Paper
-        </a>
-        <a href="#" class="btn btn-secondary">
-          <i class="fab fa-github"></i> Code
-        </a>
-        <a href="#" class="btn btn-secondary">
-          <i class="fas fa-database"></i> Data
-        </a>
-        <a href="#" class="btn btn-secondary">
-          <i class="ai ai-arxiv"></i> arXiv
-        </a>
-      </div>
+  <!-- Teaser -->
+  <section class="section">
+    <div class="image-placeholder">
+      <span>Teaser Figure</span>
     </div>
-    <div class="hero-scroll-indicator">
-      <a href="#abstract"><i class="fas fa-chevron-down"></i></a>
-    </div>
+    <p class="caption">NeRF-UAVeL produces accurate 3D bounding box predictions from NeRF-derived volumetric representations across synthetic and real-world indoor scenes.</p>
   </section>
 
   <!-- Abstract -->
-  <section class="section" id="abstract">
-    <div class="container">
-      <h2 class="section-title">Abstract</h2>
-      <div class="abstract-content">
-        <p>
-          This paper presents <strong>NeRF-UAVeL</strong>, a unified attention-driven volumetric learning framework for 3D object detection from Neural Radiance Fields. The framework integrates four complementary modules into a volumetric backbone to enhance multi-scale feature representation and spatial context modeling:
-        </p>
-        <p>
-          <strong>(1) Multi-dimensional Volumetric Attention Pooling (MVAP)</strong>, which decomposes volumetric attention into axis-specific components to capture directional feature asymmetry;
-          <strong>(2) Tri-Scale Asymmetric Convolutional Aggregation (TACA)</strong>, which employs spatial-first, depth-second factorized convolutions for multi-scale feature extraction;
-          <strong>(3) Dual-Domain Attention Fusion (DDAF)</strong>, which jointly recalibrates channel and spatial features through ECA-based attention and multi-rate dilated convolutions; and
-          <strong>(4) Volumetric Cross-Window Attention Fusion (V-CWAF)</strong>, which applies localized cross-window multi-head attention for global context modeling.
-        </p>
-        <p>
-          Extensive experiments on the <strong>3D-FRONT</strong> and <strong>ScanNet</strong> datasets demonstrate that NeRF-UAVeL achieves state-of-the-art performance, with improvements of <span class="highlight">+6.7% AP<sub>50</sub></span> on 3D-FRONT and <span class="highlight">+6.9% AP<sub>50</sub></span> on ScanNet over the NeRF-RPN baseline.
-        </p>
-      </div>
+  <section class="section">
+    <h2>Abstract</h2>
+    <p class="abstract-text">
+      Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) has emerged as a promising direction for reconstructing complex environments from posed RGB images. However, existing NeRF-based detectors often suffer from coarse feature encoding and limited attention to multi-scale volumetric structure, leading to inaccurate localization and poor generalization in real-world scenarios. To address these challenges, we propose NeRF-UAVeL, a unified attention-driven volumetric learning detection framework that integrates four novel modules into a NeRF-derived 3D volumetric backbone, namely, Multi-dimensional Volumetric Attention Pooling (MVAP), Tri-Scale Asymmetric Convolutional Aggregation (TACA), Dual-Domain Attention Fusion (DDAF), and Volumetric Cross-Window Attention Fusion (V-CWAF). MVAP enhances spatial selectivity through adaptive attention-based pooling, TACA captures multi-scale volumetric features through asymmetric convolutional branches, DDAF applies lightweight channel and spatial recalibration for refined feature emphasis, and V-CWAF injects cross-window attention with dual-stage channel recalibration to boost high-level semantic encoding. Extensive experiments on the 3D-FRONT and ScanNet datasets demonstrate that NeRF-UAVeL outperforms both point cloud-based and multi-view-based methods. Specifically, it improves AP<sub>50</sub> by +6.7% and R<sub>50</sub> by +7.3% over the baseline on 3D-FRONT, and achieves a +6.9% improvement in AP<sub>50</sub> and +2.9% in R<sub>50</sub> on the ScanNet datasets. These results confirm the effectiveness of our attention-calibrated, multi-scale volumetric architecture in producing precise and robust 3D bounding box predictions across both synthetic and real-world scenes.
+    </p>
+  </section>
+
+  <!-- Method -->
+  <section class="section">
+    <h2>Method</h2>
+    <div class="image-placeholder">
+      <span>Architecture Overview</span>
+    </div>
+    <p class="caption">Overall architecture of NeRF-UAVeL. The framework augments a NeRF-derived volumetric backbone with four attention-driven modules at different stages of the feature hierarchy.</p>
+    <div class="module-list">
+      <p><strong>MVAP</strong> (Multi-dimensional Volumetric Attention Pooling) &mdash; Enhances spatial selectivity through adaptive attention-based pooling across volumetric dimensions.</p>
+      <p><strong>TACA</strong> (Tri-Scale Asymmetric Convolutional Aggregation) &mdash; Captures multi-scale volumetric features via asymmetric convolutional branches at three complementary scales.</p>
+      <p><strong>DDAF</strong> (Dual-Domain Attention Fusion) &mdash; Applies lightweight channel and spatial recalibration for refined feature emphasis.</p>
+      <p><strong>V-CWAF</strong> (Volumetric Cross-Window Attention Fusion) &mdash; Injects cross-window attention with dual-stage channel recalibration for high-level semantic encoding.</p>
     </div>
   </section>
 
-  <!-- Method Overview -->
-  <section class="section section-alt" id="method">
-    <div class="container">
-      <h2 class="section-title">Method Overview</h2>
-      <p class="section-subtitle">
-        NeRF-UAVeL integrates four attention-driven modules into the volumetric backbone of NeRF-RPN, enhancing multi-scale feature learning and spatial context modeling for 3D object detection.
-      </p>
-      <div class="architecture-figure">
-        <div class="figure-placeholder">
-          <i class="fas fa-project-diagram"></i>
-          <p>Architecture Overview</p>
-          <span class="placeholder-note">Place architecture figure at<br><code>static/images/architecture.png</code></span>
-        </div>
-        <p class="figure-caption">
-          <strong>Figure 1.</strong> Overall architecture of the NeRF-UAVeL framework. The four proposed modules (MVAP, TACA, DDAF, V-CWAF) are integrated into the volumetric feature extraction backbone to enhance multi-scale representation and spatial context modeling.
-        </p>
-      </div>
+  <!-- Main Results -->
+  <section class="section">
+    <h2>Main Results</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="4">3D-FRONT</th>
+            <th colspan="4">ScanNet</th>
+          </tr>
+          <tr>
+            <th>R<sub>25</sub></th>
+            <th>R<sub>50</sub></th>
+            <th>AP<sub>25</sub></th>
+            <th>AP<sub>50</sub></th>
+            <th>R<sub>25</sub></th>
+            <th>R<sub>50</sub></th>
+            <th>AP<sub>25</sub></th>
+            <th>AP<sub>50</sub></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VoteNet</td>
+            <td>81.5</td><td>61.6</td><td>73.0</td><td>49.6</td>
+            <td>78.5</td><td>34.2</td><td>66.8</td><td>18.2</td>
+          </tr>
+          <tr>
+            <td>GroupFree</td>
+            <td>84.9</td><td>63.7</td><td>72.1</td><td>45.1</td>
+            <td>75.2</td><td>37.6</td><td>60.1</td><td>20.4</td>
+          </tr>
+          <tr>
+            <td>FCAF3D</td>
+            <td>89.1</td><td>56.9</td><td>73.1</td><td>35.2</td>
+            <td>90.2</td><td>42.4</td><td>63.7</td><td>18.5</td>
+          </tr>
+          <tr>
+            <td>ImVoxNet</td>
+            <td>88.3</td><td>71.5</td><td>86.1</td><td>66.4</td>
+            <td>51.7</td><td>20.2</td><td>37.3</td><td>9.8</td>
+          </tr>
+          <tr>
+            <td>NeRF-MAE</td>
+            <td>97.2</td><td>74.5</td><td>85.3</td><td>63.0</td>
+            <td>92.0</td><td>39.5</td><td>57.1</td><td>17.0</td>
+          </tr>
+          <tr>
+            <td>NeRF-RPN</td>
+            <td>96.3</td><td>69.9</td><td>85.2</td><td>59.9</td>
+            <td>89.2</td><td>42.9</td><td>55.5</td><td>18.4</td>
+          </tr>
+          <tr class="ours-row">
+            <td><strong>Ours</strong></td>
+            <td><strong>98.5</strong></td><td><strong>77.2</strong></td><td><strong>87.3</strong></td><td><strong>66.6</strong></td>
+            <td><strong>92.6</strong></td><td><strong>45.8</strong></td><td><strong>60.1</strong></td><td><strong>25.3</strong></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <!-- Module Descriptions -->
-  <section class="section" id="modules">
-    <div class="container">
-      <h2 class="section-title">Proposed Modules</h2>
-      <p class="section-subtitle">
-        Four complementary attention-driven modules designed to address different aspects of volumetric feature learning.
-      </p>
-      <div class="modules-grid">
+  <!-- Qualitative Visualization -->
+  <section class="section">
+    <h2>Qualitative Visualization</h2>
 
-        <!-- MVAP -->
-        <div class="module-card" data-module="mvap">
-          <div class="module-icon">
-            <i class="fas fa-layer-group"></i>
-          </div>
-          <h3 class="module-title">MVAP</h3>
-          <h4 class="module-full-name">Multi-dimensional Volumetric Attention Pooling</h4>
-          <p class="module-description">
-            Decomposes volumetric attention into axis-specific components along height, width, and depth dimensions. This captures directional feature asymmetry inherent in 3D scenes, enabling the network to learn dimension-aware feature representations that reflect the anisotropic nature of indoor environments.
-          </p>
-          <div class="module-figure-placeholder">
-            <span>MVAP Diagram</span>
-          </div>
-        </div>
-
-        <!-- TACA -->
-        <div class="module-card" data-module="taca">
-          <div class="module-icon">
-            <i class="fas fa-cubes"></i>
-          </div>
-          <h3 class="module-title">TACA</h3>
-          <h4 class="module-full-name">Tri-Scale Asymmetric Convolutional Aggregation</h4>
-          <p class="module-description">
-            Employs spatial-first, depth-second factorized convolutions at three scales to extract multi-scale features efficiently. The asymmetric decomposition reduces computational cost while preserving the ability to capture both fine-grained local details and broader contextual patterns across volumetric space.
-          </p>
-          <div class="module-figure-placeholder">
-            <span>TACA Diagram</span>
-          </div>
-        </div>
-
-        <!-- DDAF -->
-        <div class="module-card" data-module="ddaf">
-          <div class="module-icon">
-            <i class="fas fa-compress-arrows-alt"></i>
-          </div>
-          <h3 class="module-title">DDAF</h3>
-          <h4 class="module-full-name">Dual-Domain Attention Fusion</h4>
-          <p class="module-description">
-            Jointly recalibrates features in both channel and spatial domains through ECA-based channel attention and multi-rate dilated convolutions. This dual-domain approach ensures that the network can simultaneously emphasize informative feature channels and spatially relevant regions for accurate detection.
-          </p>
-          <div class="module-figure-placeholder">
-            <span>DDAF Diagram</span>
-          </div>
-        </div>
-
-        <!-- V-CWAF -->
-        <div class="module-card" data-module="vcwaf">
-          <div class="module-icon">
-            <i class="fas fa-th"></i>
-          </div>
-          <h3 class="module-title">V-CWAF</h3>
-          <h4 class="module-full-name">Volumetric Cross-Window Attention Fusion</h4>
-          <p class="module-description">
-            Applies localized cross-window multi-head attention to model long-range dependencies across the volumetric feature space. By partitioning volumes into windows and attending across their boundaries, V-CWAF achieves global context modeling with linear complexity relative to volume size.
-          </p>
-          <div class="module-figure-placeholder">
-            <span>V-CWAF Diagram</span>
-          </div>
-        </div>
-
-      </div>
+    <h3>3D-FRONT</h3>
+    <div class="image-placeholder">
+      <span>3D-FRONT Qualitative Results</span>
     </div>
+    <p class="caption">Qualitative 3D object detection results on the 3D-FRONT dataset. NeRF-UAVeL produces tighter and more complete bounding boxes compared to the baseline.</p>
+
+    <h3>ScanNet</h3>
+    <div class="image-placeholder">
+      <span>ScanNet Qualitative Results</span>
+    </div>
+    <p class="caption">Qualitative 3D object detection results on the ScanNet dataset. Our method better localizes objects in cluttered real-world scenes.</p>
   </section>
 
-  <!-- Results -->
-  <section class="section section-alt" id="results">
-    <div class="container">
-      <h2 class="section-title">Experimental Results</h2>
-      <p class="section-subtitle">
-        Quantitative evaluation on the 3D-FRONT and ScanNet datasets for NeRF-based 3D object detection.
-      </p>
-
-      <!-- Main Comparison Table -->
-      <div class="table-wrapper">
-        <h3 class="table-title">Comparison with State-of-the-Art Methods</h3>
-        <div class="table-scroll">
-          <table class="results-table">
-            <thead>
-              <tr>
-                <th rowspan="2" class="method-col">Method</th>
-                <th colspan="4" class="dataset-header">3D-FRONT</th>
-                <th colspan="4" class="dataset-header dataset-header-alt">ScanNet</th>
-              </tr>
-              <tr>
-                <th>R<sub>25</sub></th>
-                <th>R<sub>50</sub></th>
-                <th>AP<sub>25</sub></th>
-                <th>AP<sub>50</sub></th>
-                <th>R<sub>25</sub></th>
-                <th>R<sub>50</sub></th>
-                <th>AP<sub>25</sub></th>
-                <th>AP<sub>50</sub></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="method-name">VoteNet</td>
-                <td>81.5</td><td>61.6</td><td>73.0</td><td>49.6</td>
-                <td>78.5</td><td>34.2</td><td>66.8</td><td>18.2</td>
-              </tr>
-              <tr>
-                <td class="method-name">GroupFree</td>
-                <td>84.9</td><td>63.7</td><td>72.1</td><td>45.1</td>
-                <td>75.2</td><td>37.6</td><td>60.1</td><td>20.4</td>
-              </tr>
-              <tr>
-                <td class="method-name">FCAF3D</td>
-                <td>89.1</td><td>56.9</td><td>73.1</td><td>35.2</td>
-                <td>90.2</td><td>42.4</td><td>63.7</td><td>18.5</td>
-              </tr>
-              <tr>
-                <td class="method-name">ImVoxNet</td>
-                <td>88.3</td><td>71.5</td><td>86.1</td><td>66.4</td>
-                <td>51.7</td><td>20.2</td><td>37.3</td><td>9.8</td>
-              </tr>
-              <tr>
-                <td class="method-name">NeRF-MAE</td>
-                <td>97.2</td><td>74.5</td><td>85.3</td><td>63.0</td>
-                <td>92.0</td><td>39.5</td><td>57.1</td><td>17.0</td>
-              </tr>
-              <tr>
-                <td class="method-name">NeRF-RPN</td>
-                <td>96.3</td><td>69.9</td><td>85.2</td><td>59.9</td>
-                <td>89.2</td><td>42.9</td><td>55.5</td><td>18.4</td>
-              </tr>
-              <tr class="ours-row">
-                <td class="method-name"><strong>Ours</strong></td>
-                <td><strong>98.5</strong></td><td><strong>77.2</strong></td><td><strong>87.3</strong></td><td><strong>66.6</strong></td>
-                <td><strong>92.6</strong></td><td><strong>45.8</strong></td><td><strong>60.1</strong></td><td><strong>25.3</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Improvement Callout -->
-      <div class="improvement-callout">
-        <div class="improvement-item">
-          <span class="improvement-value">+6.7%</span>
-          <span class="improvement-label">AP<sub>50</sub> on 3D-FRONT</span>
-        </div>
-        <div class="improvement-divider"></div>
-        <div class="improvement-item">
-          <span class="improvement-value">+6.9%</span>
-          <span class="improvement-label">AP<sub>50</sub> on ScanNet</span>
-        </div>
-      </div>
-
-      <!-- Ablation Table -->
-      <div class="table-wrapper">
-        <h3 class="table-title">Ablation Study</h3>
-        <div class="table-scroll">
-          <table class="results-table">
-            <thead>
-              <tr>
-                <th rowspan="2" class="method-col">Configuration</th>
-                <th colspan="4" class="dataset-header">3D-FRONT</th>
-                <th colspan="4" class="dataset-header dataset-header-alt">ScanNet</th>
-              </tr>
-              <tr>
-                <th>R<sub>25</sub></th>
-                <th>R<sub>50</sub></th>
-                <th>AP<sub>25</sub></th>
-                <th>AP<sub>50</sub></th>
-                <th>R<sub>25</sub></th>
-                <th>R<sub>50</sub></th>
-                <th>AP<sub>25</sub></th>
-                <th>AP<sub>50</sub></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="method-name">Baseline (NeRF-RPN)</td>
-                <td>96.3</td><td>69.9</td><td>85.2</td><td>59.9</td>
-                <td>89.2</td><td>42.9</td><td>55.5</td><td>18.4</td>
-              </tr>
-              <tr>
-                <td class="method-name">+ DDAF</td>
-                <td>97.1</td><td>72.8</td><td>85.9</td><td>62.0</td>
-                <td>91.6</td><td>41.4</td><td>55.2</td><td>19.2</td>
-              </tr>
-              <tr>
-                <td class="method-name">+ DDAF + TACA</td>
-                <td>97.8</td><td>73.5</td><td>86.4</td><td>61.1</td>
-                <td>89.2</td><td>42.4</td><td>53.8</td><td>22.1</td>
-              </tr>
-              <tr>
-                <td class="method-name">+ DDAF + MVAP</td>
-                <td>97.1</td><td>75.7</td><td>86.7</td><td>63.2</td>
-                <td>90.1</td><td>44.3</td><td>57.5</td><td>23.5</td>
-              </tr>
-              <tr>
-                <td class="method-name">+ DDAF + TACA + MVAP</td>
-                <td>97.8</td><td>76.5</td><td>87.0</td><td>64.4</td>
-                <td>90.1</td><td>43.8</td><td>59.7</td><td>24.6</td>
-              </tr>
-              <tr class="ours-row">
-                <td class="method-name"><strong>Full (NeRF-UAVeL)</strong></td>
-                <td><strong>98.5</strong></td><td><strong>77.2</strong></td><td><strong>87.3</strong></td><td><strong>66.6</strong></td>
-                <td><strong>92.6</strong></td><td><strong>45.8</strong></td><td><strong>60.1</strong></td><td><strong>25.3</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Qualitative Results -->
-  <section class="section" id="qualitative">
-    <div class="container">
-      <h2 class="section-title">Qualitative Results</h2>
-      <p class="section-subtitle">
-        Visual comparison of 3D bounding box predictions on 3D-FRONT and ScanNet scenes.
-      </p>
-      <div class="qualitative-grid">
-        <div class="qual-item">
-          <div class="qual-placeholder">
-            <i class="fas fa-image"></i>
-            <p>3D-FRONT Scene 1</p>
-            <span class="placeholder-note">Place image at <code>static/images/qual_3dfront_1.png</code></span>
-          </div>
-          <p class="qual-caption">3D-FRONT: NeRF-RPN (left) vs. Ours (right)</p>
-        </div>
-        <div class="qual-item">
-          <div class="qual-placeholder">
-            <i class="fas fa-image"></i>
-            <p>3D-FRONT Scene 2</p>
-            <span class="placeholder-note">Place image at <code>static/images/qual_3dfront_2.png</code></span>
-          </div>
-          <p class="qual-caption">3D-FRONT: NeRF-RPN (left) vs. Ours (right)</p>
-        </div>
-        <div class="qual-item">
-          <div class="qual-placeholder">
-            <i class="fas fa-image"></i>
-            <p>ScanNet Scene 1</p>
-            <span class="placeholder-note">Place image at <code>static/images/qual_scannet_1.png</code></span>
-          </div>
-          <p class="qual-caption">ScanNet: NeRF-RPN (left) vs. Ours (right)</p>
-        </div>
-        <div class="qual-item">
-          <div class="qual-placeholder">
-            <i class="fas fa-image"></i>
-            <p>ScanNet Scene 2</p>
-            <span class="placeholder-note">Place image at <code>static/images/qual_scannet_2.png</code></span>
-          </div>
-          <p class="qual-caption">ScanNet: NeRF-RPN (left) vs. Ours (right)</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Citation -->
-  <section class="section section-alt" id="citation">
-    <div class="container">
-      <h2 class="section-title">Citation</h2>
-      <p class="section-subtitle">
-        If you find this work useful in your research, please consider citing our paper.
-      </p>
-      <div class="bibtex-wrapper">
-        <div class="bibtex-header">
-          <span class="bibtex-label">BibTeX</span>
-          <button class="copy-btn" id="copy-bibtex" title="Copy to clipboard">
-            <i class="fas fa-copy"></i> Copy
-          </button>
-        </div>
-        <pre class="bibtex-code" id="bibtex-content">@article{author2025nerfuavel,
-  title     = {NeRF-UAVeL: Unified Attention-driven Volumetric Learning
-               for Enhanced NeRF-based 3D Object Detection},
-  author    = {Author, First and Author, Second and Author, Third},
-  journal   = {Neurocomputing},
-  year      = {2025},
-  note      = {Under Review}
-}</pre>
-      </div>
+  <!-- BibTeX -->
+  <section class="section">
+    <h2>BibTeX</h2>
+    <div class="bibtex-block">
+      <button class="copy-btn" id="copy-bibtex" title="Copy to clipboard">
+        <i class="fa-regular fa-copy"></i> Copy
+      </button>
+      <pre><code id="bibtex-text">@article{nerf_uavel2025,
+    title     = {NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection},
+    author    = {Goshu, Hana L.},
+    journal   = {Neurocomputing},
+    year      = {2025},
+    note      = {Under Review}
+}</code></pre>
     </div>
   </section>
 
   <!-- Acknowledgements -->
-  <section class="section" id="acknowledgements">
-    <div class="container">
-      <h2 class="section-title">Acknowledgements</h2>
-      <div class="acknowledgements-content">
-        <p>
-          This work builds upon <a href="https://github.com/lyclyc52/NeRF_RPN" target="_blank">NeRF-RPN</a>. We thank the authors for their open-source contributions. We also acknowledge the creators of the <a href="https://tianchi.aliyun.com/specials/promotion/alibaba-3d-scene-dataset" target="_blank">3D-FRONT</a> and <a href="http://www.scan-net.org/" target="_blank">ScanNet</a> datasets.
-        </p>
-        <p>
-          The website template is inspired by <a href="https://nerfies.github.io" target="_blank">Nerfies</a> and the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
-        </p>
-      </div>
-    </div>
+  <section class="section">
+    <h2>Acknowledgements</h2>
+    <p>This work builds upon <a href="https://github.com/lyclyc52/NeRF_RPN">NeRF-RPN</a>. We thank the authors for making their code and data publicly available.</p>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="#" title="Paper"><i class="fas fa-file-pdf"></i></a>
-          <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" title="arXiv"><i class="ai ai-arxiv"></i></a>
-        </div>
-        <p class="footer-text">
-          NeRF-UAVeL &copy; 2025. All rights reserved.
-        </p>
-      </div>
-    </div>
+    <p>This website is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Website template borrowed from <a href="https://nerfies.github.io/" target="_blank">Nerfies</a>.</p>
   </footer>
 
   <script src="static/js/main.js"></script>
