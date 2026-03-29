@@ -1,0 +1,36 @@
+# NOTE: These config files are provided as reference for hyperparameters.
+# The training script (run_fcos.py) uses command-line arguments, not YAML configs.
+# Use the training commands in README.md or scripts/train.sh to run experiments.
+
+# NeRF-UAVeL Training Configuration for ScanNet Dataset
+
+dataset:
+  name: scannet
+  features_path: data/scannet_rpn_data/features
+  boxes_path: data/scannet_rpn_data/obb
+  dataset_split: data/scannet_rpn_data/scannet_split.npz
+
+model:
+  backbone_type: vgg_EF
+  resolution: 160
+  rotated_bbox: true
+  normalize_density: true
+
+training:
+  num_epochs: 1200
+  batch_size: 2
+  lr: 3e-4
+  weight_decay: 1e-3
+  log_interval: 10
+  eval_interval: 10
+
+detection:
+  nms_thresh: 0.3
+  center_sampling_radius: 1.5
+  iou_loss_type: iou
+  norm_reg_targets: true
+  centerness_on_reg: true
+
+output:
+  save_path: results/scannet_full
+  log_to_file: true

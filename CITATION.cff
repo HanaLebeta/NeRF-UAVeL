@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection"
+type: software
+authors:
+  - name: "[Authors]"
+license: Apache-2.0
+repository-code: "https://github.com/[username]/NeRF-UAVeL"
+preferred-citation:
+  type: article
+  title: "NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection"
+  authors:
+    - name: "[Authors]"
+  journal: "Neurocomputing"
+  year: 2025
