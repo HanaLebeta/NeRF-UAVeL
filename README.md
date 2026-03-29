@@ -175,11 +175,11 @@ The source code, pretrained models, and training scripts will be released upon p
 If you find this work useful in your research, please consider citing:
 
 ```bibtex
-@article{nerf_uavel2025,
+@article{nerf_uavel2026,
     title     = {NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection},
     author    = {Goshu, Hana L.},
     journal   = {Neurocomputing},
-    year      = {2025},
+    year      = {2026},
     note      = {Under Review}
 }
 ```
