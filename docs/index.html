@@ -39,8 +39,11 @@
 
   <!-- Teaser -->
   <section class="section">
-    <div class="image-placeholder">
-      <span>Teaser Figure</span>
+    <div class="video-container">
+      <video autoplay loop muted playsinline width="100%">
+        <source src="static/videos/demo_front3d.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
     <p class="caption">NeRF-UAVeL produces accurate 3D bounding box predictions from NeRF-derived volumetric representations across synthetic and real-world indoor scenes.</p>
   </section>
@@ -136,16 +139,22 @@
     <h2>Qualitative Visualization</h2>
 
     <h3>3D-FRONT</h3>
-    <div class="image-placeholder">
-      <span>3D-FRONT Qualitative Results</span>
+    <div class="video-container">
+      <video autoplay loop muted playsinline width="100%">
+        <source src="static/videos/demo_front3d.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-    <p class="caption">Qualitative 3D object detection results on the 3D-FRONT dataset. NeRF-UAVeL produces tighter and more complete bounding boxes compared to the baseline.</p>
+    <p class="caption">Rotating 3D visualization of predicted bounding boxes on the 3D-FRONT dataset. Colored wireframe boxes indicate detected objects overlaid on the NeRF-derived volumetric scene representation.</p>
 
     <h3>ScanNet</h3>
-    <div class="image-placeholder">
-      <span>ScanNet Qualitative Results</span>
+    <div class="video-container">
+      <video autoplay loop muted playsinline width="100%">
+        <source src="static/videos/demo_scannet.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-    <p class="caption">Qualitative 3D object detection results on the ScanNet dataset. Our method better localizes objects in cluttered real-world scenes.</p>
+    <p class="caption">Rotating 3D visualization of predicted bounding boxes on the ScanNet dataset. Our method accurately localizes objects in cluttered real-world indoor scenes.</p>
   </section>
 
   <!-- BibTeX -->

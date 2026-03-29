@@ -34,7 +34,15 @@
 ---
 
 <div align="center">
-<img src="assets/teaser.png" width="95%">
+<img src="assets/demo_front3d.gif" width="95%">
+<br>
+<em>3D object detection results on 3D-FRONT with predicted bounding boxes.</em>
+</div>
+
+<div align="center">
+<img src="assets/demo_scannet.gif" width="95%">
+<br>
+<em>3D object detection results on ScanNet with predicted bounding boxes.</em>
 </div>
 
 ---
