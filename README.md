@@ -188,7 +188,7 @@ If you find this work useful in your research, please consider citing:
 
 ## Acknowledgements
 
-This project builds upon the excellent [NeRF-RPN](https://github.com/lyclyc52/NeRF_RPN) codebase. We thank the authors for releasing their code and pre-extracted NeRF features. We also acknowledge the developers of the open-source libraries and datasets that made this work possible.
+This project builds upon the [NeRF-RPN](https://github.com/lyclyc52/NeRF_RPN) codebase.
 
 ## License
 
