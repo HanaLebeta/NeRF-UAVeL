@@ -2,17 +2,20 @@
 
 # NeRF-UAVeL
 
-### Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection
+### Unified attention-driven volumetric learning for robust NeRF-based 3D object detection
 
 <p>
-<a href="#">
-<img alt="Paper" src="https://img.shields.io/badge/Paper-Coming%20Soon-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white">
+<a href="https://doi.org/10.1016/j.neucom.2026.134610">
+<img alt="Paper" src="https://img.shields.io/badge/Paper-Neurocomputing-b31b1b?style=for-the-badge&logo=elsevier&logoColor=white">
+</a>
+<a href="https://doi.org/10.1016/j.neucom.2026.134610">
+<img alt="DOI" src="https://img.shields.io/badge/DOI-10.1016%2Fj.neucom.2026.134610-004f9f?style=for-the-badge">
 </a>
 <a href="https://hanalebeta.github.io/NeRF-UAVeL/">
 <img alt="Project Page" src="https://img.shields.io/badge/Project-Page-blue?style=for-the-badge&logo=github-pages&logoColor=white">
 </a>
-<a href="#">
-<img alt="Code" src="https://img.shields.io/badge/Code-Coming%20Soon-gray?style=for-the-badge&logo=github&logoColor=white">
+<a href="https://github.com/HanaLebeta/NeRF-UAVeL">
+<img alt="Code" src="https://img.shields.io/badge/Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
 </a>
 <a href="#">
 <img alt="Python 3.8+" src="https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white">
@@ -29,7 +32,7 @@
 
 <sup>1</sup>The Hong Kong Polytechnic University &nbsp; <sup>2</sup>Kennesaw State University &nbsp; <sup>3</sup>Xi'an Jiaotong University
 
-*Neurocomputing (Under Review)*
+*Published in [Neurocomputing](https://doi.org/10.1016/j.neucom.2026.134610), Volume 702 (2026), 134610*
 
 </div>
 
@@ -152,7 +155,7 @@ Quantitative results on the 3D-FRONT and ScanNet datasets. The first block inclu
 <td align="center"><strong>66.6</strong></td>
 <td align="center"><strong>92.6</strong></td>
 <td align="center"><strong>45.8</strong></td>
-<td align="center">60.2</td>
+<td align="center">60.1</td>
 <td align="center"><strong>25.3</strong></td>
 </tr>
 </tbody>
@@ -162,7 +165,7 @@ Quantitative results on the 3D-FRONT and ScanNet datasets. The first block inclu
 
 ## Code Availability
 
-The source code, pretrained models, and training scripts will be released upon publication of the paper. Stay tuned!
+The paper is published. The source code, pretrained models, and training scripts are being prepared for release and will be added to this repository.
 
 ## Citation
 
@@ -170,11 +173,14 @@ If you find this work useful in your research, please consider citing:
 
 ```bibtex
 @article{nerf_uavel2026,
-    title     = {NeRF-UAVeL: Unified Attention-driven Volumetric Learning for Enhanced NeRF-based 3D Object Detection},
+    title     = {NeRF-UAVeL: Unified attention-driven volumetric learning for robust NeRF-based 3D object detection},
     author    = {Goshu, Hana L. and Wakjira, Tadesse G. and Atlaw, Meklit M. and Chan, Kin-Chung and Lai, Songjiang and Lam, Kin-Man},
     journal   = {Neurocomputing},
+    volume    = {702},
+    pages     = {134610},
     year      = {2026},
-    note      = {Under Review}
+    issn      = {0925-2312},
+    doi       = {10.1016/j.neucom.2026.134610}
 }
 ```
 
