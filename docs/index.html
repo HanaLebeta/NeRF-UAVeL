@@ -37,9 +37,6 @@
       <a class="btn" href="https://doi.org/10.1016/j.neucom.2026.134610" target="_blank" rel="noopener">
         <i class="fa-solid fa-file-pdf"></i> Paper
       </a>
-      <a class="btn" href="https://doi.org/10.1016/j.neucom.2026.134610" target="_blank" rel="noopener">
-        <i class="fa-solid fa-link"></i> DOI
-      </a>
       <a class="btn" href="https://github.com/HanaLebeta/NeRF-UAVeL" target="_blank">
         <i class="fa-brands fa-github"></i> Code
       </a>
@@ -64,7 +61,7 @@
   <section class="section">
     <h2>Abstract</h2>
     <p class="abstract-text">
-      Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) has emerged as a promising direction for reconstructing complex environments from posed RGB images. However, existing NeRF-based detectors often suffer from coarse feature encoding and limited attention to multi-scale volumetric structure, leading to inaccurate localization and poor generalization in real-world scenarios. To address these challenges, we propose NeRF-UAVeL, a unified attention-driven volumetric learning detection framework that integrates four novel modules into a NeRF-derived 3D volumetric backbone, namely, Multi-dimensional Volumetric Attention Pooling (MVAP), Tri-Scale Asymmetric Convolutional Aggregation (TACA), Dual-Domain Attention Fusion (DDAF), and Volumetric Cross-Window Attention Fusion (V-CWAF). MVAP enhances spatial selectivity through adaptive attention-based pooling, TACA captures multi-scale volumetric features through asymmetric convolutional branches, DDAF applies lightweight channel and spatial recalibration for refined feature emphasis, and V-CWAF injects cross-window attention with dual-stage channel recalibration to boost high-level semantic encoding. Extensive experiments on the 3D-FRONT and ScanNet datasets demonstrate that NeRF-UAVeL outperforms both point cloud-based and multi-view-based methods. Specifically, it improves AP<sub>50</sub> by +6.7% and R<sub>50</sub> by +7.3% over the baseline on 3D-FRONT, and achieves a +6.9% improvement in AP<sub>50</sub> and +2.9% in R<sub>50</sub> on the ScanNet datasets. These results confirm the effectiveness of our attention-calibrated, multi-scale volumetric architecture in producing precise and robust 3D bounding box predictions across both synthetic and real-world scenes.
+      Three-dimensional (3D) object detection based on Neural Radiance Fields (NeRF) has emerged as a promising direction for reconstructing complex environments from posed RGB images. However, existing NeRF-based detectors often suffer from coarse feature encoding and limited attention to multi-scale volumetric structures, leading to inaccurate localization and poor generalization in real-world scenarios. To address these challenges, we propose NeRF-UAVeL, a unified attention-driven volumetric learning framework for 3D object detection that integrates four novel modules into a NeRF-derived 3D volumetric backbone, namely, Multi-dimensional Volumetric Attention Pooling (MVAP), Tri-Scale Asymmetric Convolutional Aggregation (TACA), Dual-Domain Attention Fusion (DDAF), and Volumetric Cross-Window Attention Fusion (V-CWAF). MVAP enhances spatial selectivity through adaptive attention-based pooling, TACA captures multi-scale volumetric features through asymmetric convolutional branches, DDAF applies channel and multi-scale spatial recalibration for refined feature emphasis, and V-CWAF applies windowed self-attention with dual-stage channel recalibration to boost high-level semantic encoding. Extensive experiments on the 3D-FRONT and ScanNet datasets demonstrate that NeRF-UAVeL outperforms both point cloud-based and multi-view-based methods. Specifically, it improves AP<sub>50</sub> by 6.7 and R<sub>50</sub> by 7.3 over the baseline on 3D-FRONT, and achieves a 6.9 improvement in AP<sub>50</sub> and 2.9 in R<sub>50</sub> on the ScanNet dataset. These results confirm the effectiveness of our attention-calibrated, multi-scale volumetric architecture in producing precise and robust 3D bounding box predictions across both synthetic and real-world scenes. The project page is available at <a href="https://hanalebeta.github.io/NeRF-UAVeL/">https://hanalebeta.github.io/NeRF-UAVeL/</a>.
     </p>
   </section>
 
@@ -75,8 +72,8 @@
     <div class="module-list">
       <p><strong>MVAP</strong> (Multi-dimensional Volumetric Attention Pooling) &mdash; Enhances spatial selectivity through adaptive attention-based pooling across volumetric dimensions.</p>
       <p><strong>TACA</strong> (Tri-Scale Asymmetric Convolutional Aggregation) &mdash; Captures multi-scale volumetric features via asymmetric convolutional branches at three complementary scales.</p>
-      <p><strong>DDAF</strong> (Dual-Domain Attention Fusion) &mdash; Applies lightweight channel and spatial recalibration for refined feature emphasis.</p>
-      <p><strong>V-CWAF</strong> (Volumetric Cross-Window Attention Fusion) &mdash; Injects cross-window attention with dual-stage channel recalibration for high-level semantic encoding.</p>
+      <p><strong>DDAF</strong> (Dual-Domain Attention Fusion) &mdash; Applies channel and multi-scale spatial recalibration for refined feature emphasis.</p>
+      <p><strong>V-CWAF</strong> (Volumetric Cross-Window Attention Fusion) &mdash; Applies windowed self-attention with dual-stage channel recalibration to boost high-level semantic encoding.</p>
     </div>
   </section>
 
